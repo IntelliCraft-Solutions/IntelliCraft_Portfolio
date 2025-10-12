@@ -185,6 +185,27 @@ html {
   }
 }
 
+@keyframes circuit-pulse {
+  0%,
+  100% {
+    opacity: 0.3;
+    filter: brightness(1);
+  }
+  50% {
+    opacity: 0.6;
+    filter: brightness(1.2);
+  }
+}
+
+@keyframes circuit-flow {
+  0% {
+    stroke-dasharray: 0 100;
+  }
+  100% {
+    stroke-dasharray: 100 0;
+  }
+}
+
 .animate-float {
   animation: float 8s ease-in-out infinite;
 }
@@ -203,6 +224,14 @@ html {
 
 .animate-text-glow {
   animation: text-glow 2s ease-in-out infinite;
+}
+
+.animate-circuit-pulse {
+  animation: circuit-pulse 3s ease-in-out infinite;
+}
+
+.animate-circuit-flow {
+  animation: circuit-flow 4s linear infinite;
 }
 
 /* Custom gradient backgrounds */
@@ -239,4 +268,22 @@ html {
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
+}
+
+/* Circuit background blending modes */
+.circuit-background {
+  mix-blend-mode: screen;
+}
+
+.dark .circuit-background {
+  mix-blend-mode: overlay;
+}
+
+/* Robot lighting effects */
+.robot-lighting {
+  mix-blend-mode: soft-light;
+}
+
+.dark .robot-lighting {
+  mix-blend-mode: screen;
 }

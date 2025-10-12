@@ -3,6 +3,8 @@
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Play } from "lucide-react"
 import { SplineScene } from "@/components/ui/splite"
+import { CircuitBackground } from "@/components/circuit-background"
+import { RobotLighting } from "@/components/robot-lighting"
 
 export function HeroSection() {
   return (
@@ -52,6 +54,16 @@ export function HeroSection() {
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Circuit background pattern - positioned behind robot area */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <CircuitBackground />
+      </div>
+      
+      {/* Robot lighting effects - positioned behind robot area */}
+      <div className="absolute inset-0 z-5 pointer-events-none">
+        <RobotLighting />
       </div>
 
       {/* Subtle background glow */}
