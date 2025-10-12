@@ -8,45 +8,45 @@ import { RobotLighting } from "@/components/robot-lighting"
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-[85vh] flex items-center overflow-hidden bg-background pt-28 md:pt-32 pb-12">
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-background pt-20 sm:pt-24 md:pt-28 lg:pt-32 pb-8 sm:pb-12">
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-4 items-center">
           {/* Left column: text content */}
-          <div className="lg:col-span-6 text-left">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black mb-3 leading-tight whitespace-nowrap playwrite-us-modern">
+          <div className="lg:col-span-6 text-center lg:text-left order-2 lg:order-1">
+            <h1 className="text-3xl xs:text-4xl sm:text-5xl lg:text-6xl font-black mb-3 leading-tight playwrite-us-modern">
               IntelliCraft Solutions
             </h1>
 
-            <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black text-balance mb-8 leading-tight">
+            <h2 className="text-3xl xs:text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black text-balance mb-6 sm:mb-8 leading-tight">
               <span className="text-gradient animate-text-glow">WEB SOLUTIONS Built Right</span>
             </h2>
 
-            <p className="text-lg sm:text-xl text-muted-foreground text-pretty mb-12 max-w-3xl leading-relaxed">
+            <p className="text-base sm:text-lg lg:text-xl text-muted-foreground text-pretty mb-8 sm:mb-12 max-w-3xl mx-auto lg:mx-0 leading-relaxed">
               Premium e-commerce platforms, finance management tools, and AI agent solutions.
               <span className="text-primary font-semibold"> Ready to deploy in hours, not months.</span>
             </p>
 
-            {/* CTAs untouched */}
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
-              <Button size="lg" className="text-lg px-10 py-6 group bg-primary hover:bg-primary/90 animate-glow">
+            {/* CTAs optimized for mobile */}
+            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 sm:gap-6">
+              <Button size="lg" className="w-full sm:w-auto text-base sm:text-lg px-8 sm:px-10 py-4 sm:py-6 group bg-primary hover:bg-primary/90 animate-glow">
                 Start Your Project
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
 
               <Button
                 variant="outline"
                 size="lg"
-                className="text-lg px-10 py-6 group glass border-primary/30 hover:border-primary/60 bg-transparent"
+                className="w-full sm:w-auto text-base sm:text-lg px-8 sm:px-10 py-4 sm:py-6 group glass border-primary/30 hover:border-primary/60 bg-transparent"
               >
-                <Play className="mr-2 h-5 w-5" />
+                <Play className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
                 Watch Demo
               </Button>
             </div>
           </div>
 
-          {/* Right column: Spline robot moved up and slightly bigger, anchored bottom */}
-          <div className="lg:col-span-6 relative h-[50vh] sm:h-[58vh] lg:h-[66vh] xl:h-[70vh] pointer-events-auto flex items-end">
-            <div className="absolute bottom-0 left-0 right-0 translate-x-[10%] lg:translate-x-[14%] scale-[1.4] lg:scale-[1.5]">
+          {/* Right column: Spline robot optimized for mobile */}
+          <div className="lg:col-span-6 relative h-[40vh] xs:h-[45vh] sm:h-[50vh] lg:h-[66vh] xl:h-[70vh] pointer-events-auto flex items-center justify-center lg:items-end order-1 lg:order-2">
+            <div className="w-full h-full max-w-md lg:max-w-none">
               <SplineScene
                 scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
                 className="w-full h-full"

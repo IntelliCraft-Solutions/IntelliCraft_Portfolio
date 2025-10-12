@@ -67,36 +67,36 @@ export function TestimonialsSection() {
   ]
 
   return (
-    <section id="testimonials" className="py-20 relative">
+    <section id="testimonials" className="py-16 sm:py-20 relative">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-balance mb-6">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-balance mb-4 sm:mb-6">
             Client <span className="text-primary">Success Stories</span>
           </h2>
-          <p className="text-xl text-muted-foreground text-balance max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl text-muted-foreground text-balance max-w-3xl mx-auto leading-relaxed">
             See how our solutions have transformed businesses across various industries. Real results from real clients.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {testimonials.map((testimonial, index) => (
             <Card
               key={index}
               className="group hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 glass border border-primary/20 bg-background/60 backdrop-blur-xl animate-glow"
             >
-              <CardContent className="p-6">
-                <div className="flex items-center mb-4">
+              <CardContent className="p-4 sm:p-6">
+                <div className="flex items-center mb-3 sm:mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                    <Star key={i} className="h-3 w-3 sm:h-4 sm:w-4 fill-yellow-400 text-yellow-400" />
                   ))}
                 </div>
 
-                <blockquote className="text-muted-foreground mb-6 leading-relaxed">"{testimonial.content}"</blockquote>
+                <blockquote className="text-sm sm:text-base text-muted-foreground mb-4 sm:mb-6 leading-relaxed">"{testimonial.content}"</blockquote>
 
-                <div className="flex items-center space-x-4">
-                  <Avatar>
+                <div className="flex items-center space-x-3 sm:space-x-4">
+                  <Avatar className="w-10 h-10 sm:w-12 sm:h-12">
                     <AvatarImage src={testimonial.avatar || "/placeholder.svg"} alt={testimonial.name} />
-                    <AvatarFallback className="bg-primary/20 text-primary">
+                    <AvatarFallback className="bg-primary/20 text-primary text-sm sm:text-base">
                       {testimonial.name
                         .split(" ")
                         .map((n) => n[0])
@@ -104,14 +104,14 @@ export function TestimonialsSection() {
                     </AvatarFallback>
                   </Avatar>
                   <div className="flex-1">
-                    <div className="font-semibold text-foreground">{testimonial.name}</div>
-                    <div className="text-sm text-muted-foreground">{testimonial.role}</div>
-                    <div className="text-sm text-muted-foreground">{testimonial.company}</div>
+                    <div className="font-semibold text-foreground text-sm sm:text-base">{testimonial.name}</div>
+                    <div className="text-xs sm:text-sm text-muted-foreground">{testimonial.role}</div>
+                    <div className="text-xs sm:text-sm text-muted-foreground">{testimonial.company}</div>
                   </div>
                 </div>
 
-                <div className="mt-4 pt-4 border-t border-primary/20">
-                  <div className="text-sm font-bold text-primary bg-primary/10 px-3 py-1 rounded-full inline-block">
+                <div className="mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-primary/20">
+                  <div className="text-xs sm:text-sm font-bold text-primary bg-primary/10 px-2 sm:px-3 py-1 rounded-full inline-block">
                     {testimonial.metric}
                   </div>
                 </div>

@@ -32,7 +32,7 @@ export function Header() {
       }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo */}
           <div className="flex items-center">
             <Image
@@ -40,17 +40,17 @@ export function Header() {
               alt="Intelli Craft Solutions"
               width={48}
               height={48}
-              className="w-10 h-10 sm:w-12 sm:h-12"
+              className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12"
             />
           </div>
 
           {/* Desktop Navigation - center */}
-          <nav className="hidden md:flex items-center gap-10">
+          <nav className="hidden md:flex items-center gap-6 lg:gap-10">
             {navItems.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                className="text-foreground hover:text-primary transition-all duration-300 text-lg font-medium hover:animate-text-glow"
+                className="text-foreground hover:text-primary transition-all duration-300 text-base lg:text-lg font-medium hover:animate-text-glow"
               >
                 {item.label}
               </a>
@@ -65,8 +65,8 @@ export function Header() {
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center gap-2">
             <ThemeToggle />
-            <Button variant="ghost" size="lg" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="glass">
-              {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            <Button variant="ghost" size="sm" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="glass">
+              {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </Button>
           </div>
         </div>
@@ -79,7 +79,7 @@ export function Header() {
                 <a
                   key={item.href}
                   href={item.href}
-                  className="block px-4 py-3 text-foreground hover:text-primary transition-colors duration-200 text-lg font-medium rounded-lg hover:bg-primary/10"
+                  className="block px-4 py-3 text-foreground hover:text-primary transition-colors duration-200 text-base font-medium rounded-lg hover:bg-primary/10"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {item.label}

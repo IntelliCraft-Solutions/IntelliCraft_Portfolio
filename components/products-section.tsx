@@ -35,22 +35,22 @@ export function ProductsSection() {
   ]
 
   return (
-    <section id="products" className="py-24 relative overflow-hidden">
+    <section id="products" className="py-16 sm:py-20 lg:py-24 relative overflow-hidden">
       <div className="absolute inset-0 gradient-pink opacity-20" />
       <div className="absolute inset-0 gradient-purple opacity-15" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-20">
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-balance mb-8">
+        <div className="text-center mb-12 sm:mb-16 lg:mb-20">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-black text-balance mb-6 sm:mb-8">
             Our <span className="text-gradient">Products</span>
           </h2>
-          <p className="text-xl sm:text-2xl text-muted-foreground text-balance max-w-4xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl lg:text-2xl text-muted-foreground text-balance max-w-4xl mx-auto leading-relaxed">
             Ready-to-deploy solutions that have been battle-tested in production environments. Get started quickly with
             our <span className="text-primary font-semibold">proven products</span>.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 sm:gap-10">
           {products.map((product, index) => (
             <Card
               key={index}
@@ -60,12 +60,12 @@ export function ProductsSection() {
                 <img
                   src={product.image || "/placeholder.svg"}
                   alt={product.title}
-                  className="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-500"
+                  className="w-full h-48 sm:h-56 object-cover group-hover:scale-110 transition-transform duration-500"
                 />
-                <div className="absolute top-4 right-4">
+                <div className="absolute top-3 sm:top-4 right-3 sm:right-4">
                   <Badge
                     variant={product.status === "Production Ready" ? "default" : "secondary"}
-                    className="glass animate-pulse-glow border-primary/30"
+                    className="glass animate-pulse-glow border-primary/30 text-xs sm:text-sm"
                   >
                     <Sparkles className="w-3 h-3 mr-1" />
                     {product.status}
@@ -75,30 +75,30 @@ export function ProductsSection() {
               </div>
 
               <CardHeader>
-                <div className="flex items-center justify-between mb-4">
-                  <CardTitle className="text-2xl group-hover:text-gradient transition-all duration-300">
+                <div className="flex items-center justify-between mb-3 sm:mb-4">
+                  <CardTitle className="text-xl sm:text-2xl group-hover:text-gradient transition-all duration-300">
                     {product.title}
                   </CardTitle>
                   <div className="flex items-center space-x-1">
-                    <Star className="h-5 w-5 fill-yellow-400 text-yellow-400 animate-pulse-glow" />
-                    <span className="text-lg font-bold text-primary">{product.rating}</span>
+                    <Star className="h-4 w-4 sm:h-5 sm:w-5 fill-yellow-400 text-yellow-400 animate-pulse-glow" />
+                    <span className="text-base sm:text-lg font-bold text-primary">{product.rating}</span>
                   </div>
                 </div>
-                <CardDescription className="text-lg leading-relaxed text-muted-foreground">
+                <CardDescription className="text-base sm:text-lg leading-relaxed text-muted-foreground">
                   {product.description}
                 </CardDescription>
               </CardHeader>
 
               <CardContent>
-                <div className="space-y-6">
+                <div className="space-y-4 sm:space-y-6">
                   <div>
-                    <h4 className="font-bold mb-4 text-lg">Key Features:</h4>
+                    <h4 className="font-bold mb-3 sm:mb-4 text-base sm:text-lg">Key Features:</h4>
                     <div className="flex flex-wrap gap-2">
                       {product.features.map((feature, featureIndex) => (
                         <Badge
                           key={featureIndex}
                           variant="outline"
-                          className="text-sm glass border-primary/30 hover:border-primary/60 transition-colors"
+                          className="text-xs sm:text-sm glass border-primary/30 hover:border-primary/60 transition-colors"
                         >
                           {feature}
                         </Badge>
@@ -106,20 +106,20 @@ export function ProductsSection() {
                     </div>
                   </div>
 
-                  <div className="text-base text-muted-foreground glass rounded-lg p-3">
+                  <div className="text-sm sm:text-base text-muted-foreground glass rounded-lg p-3">
                     <strong className="text-primary">Trusted by:</strong> {product.clients}
                   </div>
 
-                  <div className="flex space-x-3">
-                    <Button className="flex-1 bg-primary hover:bg-primary/90 animate-glow text-lg py-6">
+                  <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-3">
+                    <Button className="flex-1 bg-primary hover:bg-primary/90 animate-glow text-base sm:text-lg py-4 sm:py-6">
                       Get Demo
                     </Button>
                     <Button
                       variant="outline"
                       size="icon"
-                      className="glass border-primary/30 hover:border-primary/60 p-6 bg-transparent"
+                      className="glass border-primary/30 hover:border-primary/60 p-4 sm:p-6 bg-transparent"
                     >
-                      <ExternalLink className="h-5 w-5" />
+                      <ExternalLink className="h-4 w-4 sm:h-5 sm:w-5" />
                     </Button>
                   </div>
                 </div>
