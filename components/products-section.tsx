@@ -3,7 +3,13 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { ExternalLink, Star, Sparkles } from "lucide-react"
 
-export function ProductsSection() {
+interface ProductsSectionProps {
+  title?: string
+  showMoreCta?: boolean
+  limit?: number
+}
+
+export function ProductsSection({ title = "Our Products", showMoreCta = true, limit }: ProductsSectionProps) {
   const products = [
     {
       title: "E-commerce Pro",
@@ -32,6 +38,33 @@ export function ProductsSection() {
       rating: 4.7,
       clients: "10+ early adopters",
     },
+    {
+      title: "Customer 360 CRM",
+      description: "Unified CRM with pipeline, email sync, and AI notes for SMBs.",
+      image: "/placeholder.jpg",
+      features: ["Pipeline", "Email Sync", "AI Notes", "Roles & Teams", "Reports"],
+      status: "Production Ready",
+      rating: 4.8,
+      clients: "40+ teams",
+    },
+    {
+      title: "Insights Analytics",
+      description: "Self-serve dashboards with cohort analysis and revenue attribution.",
+      image: "/modern-ecommerce-dashboard.png",
+      features: ["Cohorts", "Attribution", "Funnel", "Dashboards", "Exports"],
+      status: "Production Ready",
+      rating: 4.6,
+      clients: "30+ companies",
+    },
+    {
+      title: "Integrations Hub",
+      description: "Prebuilt connectors for Stripe, Shopify, Slack, Gmail and more.",
+      image: "/placeholder.svg",
+      features: ["50+ Connectors", "Webhooks", "Retry Queue", "Logs", "Scaling"],
+      status: "Beta Testing",
+      rating: 4.5,
+      clients: "20+ teams",
+    },
   ]
 
   return (
@@ -42,7 +75,13 @@ export function ProductsSection() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-12 sm:mb-16 lg:mb-20">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-black text-balance mb-6 sm:mb-8">
-            Our <span className="text-gradient">Products</span>
+            {title.includes("Products") ? (
+              <>
+                {title.split(" Products")[0]} <span className="text-gradient">Products</span>
+              </>
+            ) : (
+              title
+            )}
           </h2>
           <p className="text-lg sm:text-xl lg:text-2xl text-muted-foreground text-balance max-w-4xl mx-auto leading-relaxed">
             Ready-to-deploy solutions that have been battle-tested in production environments. Get started quickly with
@@ -51,7 +90,7 @@ export function ProductsSection() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 sm:gap-10">
-          {products.map((product, index) => (
+          {(limit ? products.slice(0, limit) : products).map((product, index) => (
             <Card
               key={index}
               className="group glass hover:animate-glow transition-all duration-500 hover:-translate-y-3 overflow-hidden border-primary/20 hover:border-primary/40"
@@ -111,8 +150,10 @@ export function ProductsSection() {
                   </div>
 
                   <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-3">
-                    <Button className="flex-1 bg-primary hover:bg-primary/90 animate-glow text-base sm:text-lg py-4 sm:py-6">
-                      Get Demo
+                    <Button asChild className="flex-1 bg-primary hover:bg-primary/90 animate-glow text-base sm:text-lg py-4 sm:py-6">
+                      <a href="#contact" className="inline-flex items-center justify-center w-full">
+                        Get Demo
+                      </a>
                     </Button>
                     <Button
                       variant="outline"
@@ -127,6 +168,14 @@ export function ProductsSection() {
             </Card>
           ))}
         </div>
+
+        {showMoreCta && (
+          <div className="text-center mt-10 sm:mt-12">
+            <Button asChild variant="outline" className="glass border-primary/30 hover:border-primary/60">
+              <a href="/products" className="inline-flex items-center">More products</a>
+            </Button>
+          </div>
+        )}
       </div>
     </section>
   )

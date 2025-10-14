@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
 import { ThemeToggle } from "@/components/theme-toggle"
+import Link from "next/link"
 import Image from "next/image"
 
 export function Header() {
@@ -18,11 +19,14 @@ export function Header() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
+  const pathname = typeof window !== "undefined" ? window.location?.pathname : "/"
+  const homeBase = pathname === "/" ? "#" : "/#"
   const navItems = [
-    { href: "#services", label: "Services" },
-    { href: "#products", label: "Products" },
-    { href: "#testimonials", label: "Case Studies" },
-    { href: "#contact", label: "Contact" },
+    { href: "/", label: "Home" },
+    { href: "/products", label: "Products" },
+    { href: "/contact", label: "Contact" },
+    { href: "/about", label: "About" },
+    { href: "/blog", label: "Blog/News" },
   ]
 
   return (
@@ -34,15 +38,15 @@ export function Header() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo */}
-          <div className="flex items-center">
+          <Link href="/" className="flex items-center" aria-label="IntelliCraft Solutions Home">
             <Image
               src="/logo.png"
-              alt="Intelli Craft Solutions"
+              alt="IntelliCraft Solutions"
               width={48}
               height={48}
               className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12"
             />
-          </div>
+          </Link>
 
           {/* Desktop Navigation - center */}
           <nav className="hidden md:flex items-center gap-6 lg:gap-10">

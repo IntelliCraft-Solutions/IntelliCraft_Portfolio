@@ -28,18 +28,23 @@ export function HeroSection() {
 
             {/* CTAs optimized for mobile */}
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 sm:gap-6">
-              <Button size="lg" className="w-full sm:w-auto text-base sm:text-lg px-8 sm:px-10 py-4 sm:py-6 group bg-primary hover:bg-primary/90 animate-glow">
-                Start Your Project
-                <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 group-hover:translate-x-1 transition-transform" />
+              <Button asChild size="lg" className="w-full sm:w-auto text-base sm:text-lg px-8 sm:px-10 py-4 sm:py-6 group bg-primary hover:bg-primary/90 animate-glow">
+                <a href="#contact" className="inline-flex items-center">
+                  Start Your Project
+                  <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 group-hover:translate-x-1 transition-transform" />
+                </a>
               </Button>
 
               <Button
+                asChild
                 variant="outline"
                 size="lg"
                 className="w-full sm:w-auto text-base sm:text-lg px-8 sm:px-10 py-4 sm:py-6 group glass border-primary/30 hover:border-primary/60 bg-transparent"
               >
-                <Play className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
-                Watch Demo
+                <a href="#products" className="inline-flex items-center">
+                  <Play className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
+                  Watch Demo
+                </a>
               </Button>
             </div>
           </div>

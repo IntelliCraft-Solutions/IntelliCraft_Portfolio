@@ -17,7 +17,7 @@ export function Footer() {
           {/* Company Info & Newsletter */}
           <div className="space-y-4 sm:space-y-6">
             <div>
-              <div className="text-2xl sm:text-3xl font-bold text-primary mb-3 sm:mb-4">TechFlow</div>
+              <div className="text-2xl sm:text-3xl font-bold text-primary mb-3 sm:mb-4">IntelliCraft Solutions</div>
               <p className="text-muted-foreground text-base sm:text-lg leading-relaxed max-w-md">
                 Premium e-commerce, finance, and AI solutions for modern businesses. Built for scale, designed for
                 success.
@@ -56,7 +56,7 @@ export function Footer() {
         {/* Bottom Section */}
         <div className="border-t border-border pt-6 sm:pt-8">
           <div className="flex flex-col sm:flex-row items-center justify-between space-y-4 sm:space-y-0">
-            <div className="text-muted-foreground text-xs sm:text-sm">© 2025 TechFlow Solutions. All rights reserved.</div>
+            <div className="text-muted-foreground text-xs sm:text-sm">© 2025 IntelliCraft Solutions. All rights reserved.</div>
 
             <div className="flex items-center space-x-3 sm:space-x-4">
               <Button variant="ghost" size="icon" className="h-8 w-8 sm:h-10 sm:w-10">

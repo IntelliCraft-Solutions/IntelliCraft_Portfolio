@@ -10,7 +10,7 @@ export function TestimonialsSection() {
       company: "E-commerce Startup",
       avatar: "/professional-woman-ceo.png",
       content:
-        "TechFlow delivered our e-commerce platform in record time. The payment integration and inventory management features have streamlined our entire operation.",
+        "IntelliCraft delivered our e-commerce platform in record time. The payment integration and inventory management features have streamlined our entire operation.",
       rating: 5,
       metric: "300% increase in sales",
     },
@@ -60,7 +60,7 @@ export function TestimonialsSection() {
       company: "TechVenture",
       avatar: "/startup-founder.png",
       content:
-        "From concept to deployment, TechFlow was with us every step. Their expertise in AI integration has given us a competitive edge in the market.",
+        "From concept to deployment, IntelliCraft was with us every step. Their expertise in AI integration has given us a competitive edge in the market.",
       rating: 5,
       metric: "150% efficiency gain",
     },
