@@ -2,9 +2,9 @@
 
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Play } from "lucide-react"
-import { SplineScene } from "@/components/ui/splite"
 import { CircuitBackground } from "@/components/circuit-background"
 import { RobotLighting } from "@/components/robot-lighting"
+import { HeroRobotInteractive } from "@/components/hero-robot-interactive"
 
 export function HeroSection() {
   return (
@@ -49,13 +49,10 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* Right column: Spline robot optimized for mobile */}
+          {/* Right column: Interactive Spline robot optimized for mobile */}
           <div className="lg:col-span-6 relative h-[40vh] xs:h-[45vh] sm:h-[50vh] lg:h-[66vh] xl:h-[70vh] pointer-events-auto flex items-center justify-center lg:items-end order-1 lg:order-2">
             <div className="w-full h-full max-w-md lg:max-w-none">
-              <SplineScene
-                scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
-                className="w-full h-full"
-              />
+              <HeroRobotInteractive />
             </div>
           </div>
         </div>

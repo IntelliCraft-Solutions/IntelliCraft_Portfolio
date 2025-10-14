@@ -19,7 +19,7 @@ import {
   ShieldCheck,
 } from "lucide-react"
 
-const TokenBridge = dynamic(() => import("@/components/token-bridge-canvas"), { ssr: false })
+const InteractiveRobot = dynamic(() => import("@/components/interactive-robot"), { ssr: false })
 
 export default function AboutPage() {
   const container = {
@@ -75,7 +75,7 @@ export default function AboutPage() {
             </motion.div>
 
             <div className="lg:col-span-6 relative h-[40vh] xs:h-[45vh] sm:h-[50vh] lg:h-[66vh]">
-              <TokenBridge />
+              <InteractiveRobot />
             </div>
           </div>
         </div>
