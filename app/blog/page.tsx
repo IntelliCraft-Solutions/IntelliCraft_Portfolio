@@ -4,6 +4,7 @@ import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { motion } from "framer-motion"
+import NightSkyBackground from "@/components/night-sky-background"
 
 const posts = [
   {
@@ -40,6 +41,7 @@ export default function BlogPage() {
 
   return (
     <main className="min-h-screen">
+      <NightSkyBackground />
       <Header />
       <section className="relative py-16 sm:py-20 lg:py-24 overflow-hidden">
         <div className="absolute inset-0 gradient-purple opacity-20" />
