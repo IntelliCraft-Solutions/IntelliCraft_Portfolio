@@ -201,12 +201,7 @@ export function WorkingRobot({ scene, className }: WorkingRobotProps) {
         </div>
       </div>
 
-      {/* Status indicator */}
-      <div className="absolute bottom-4 left-4">
-        <div className="bg-red-500/20 text-red-400 border border-red-500/30 px-3 py-1 rounded-full text-xs font-bold">
-          {isReacting ? `HURT: ${reactionType.toUpperCase()}` : 'Click to hurt robot!'}
-        </div>
-      </div>
+      {/* Status indicator removed after testing */}
     </div>
   )
 }

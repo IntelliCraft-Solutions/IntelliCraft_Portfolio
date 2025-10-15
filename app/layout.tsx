@@ -9,10 +9,15 @@ import { ThemeProvider } from "@/components/theme-provider"
 import "./globals.css"
 
 export const metadata: Metadata = {
-  title: "IntelliCraft Solutions — E‑commerce, Finance & AI",
+  title: "IntelliCraft Solutions",
   description:
     "Freelance product studio delivering high‑conversion e‑commerce, finance/billing tools, and AI agent automations. Premium UI, fast delivery, measurable outcomes.",
   generator: "v0.app",
+  icons: {
+    icon: "/logo.png",
+    shortcut: "/logo.png",
+    apple: "/logo.png",
+  },
 }
 
 export default function RootLayout({
