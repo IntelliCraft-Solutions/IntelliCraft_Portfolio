@@ -11,7 +11,9 @@ export function Footer() {
   }
 
   return (
-    <footer className="bg-card border-t border-border">
+    <footer className="relative bg-slate-950/95 border-t border-slate-800">
+      {/* Top separator line */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 mb-8 sm:mb-12">
           {/* Company Info & Newsletter */}

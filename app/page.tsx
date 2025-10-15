@@ -14,7 +14,7 @@ export default function HomePage() {
       <HeroSection />
       <StatsSection />
       <ServicesSection />
-      <ProductsSection />
+      <ProductsSection limit={3} />
       <TestimonialsSection />
       <ContactSection />
       <Footer />
