@@ -6,10 +6,12 @@ import { ProductsSection } from "@/components/products-section"
 import { TestimonialsSection } from "@/components/testimonials-section"
 import { ContactSection } from "@/components/contact-section"
 import { Footer } from "@/components/footer"
+import NightSkyBackground from "@/components/night-sky-background"
 
 export default function HomePage() {
   return (
     <main className="min-h-screen">
+      <NightSkyBackground />
       <Header />
       <HeroSection />
       <StatsSection />

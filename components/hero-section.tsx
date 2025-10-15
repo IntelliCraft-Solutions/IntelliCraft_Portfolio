@@ -5,10 +5,16 @@ import { ArrowRight, Play } from "lucide-react"
 import { CircuitBackground } from "@/components/circuit-background"
 import { RobotLighting } from "@/components/robot-lighting"
 import { WorkingRobot } from "@/components/ui/working-robot"
+import NightSkyBackground from "@/components/night-sky-background"
 
 export function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden bg-background pt-20 sm:pt-24 md:pt-28 lg:pt-32 pb-8 sm:pb-12">
+      {/* Starfield background for hero section */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <NightSkyBackground />
+      </div>
+      
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-4 items-center">
           {/* Left column: text content */}
