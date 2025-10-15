@@ -206,6 +206,21 @@ html {
   }
 }
 
+@keyframes spotlight {
+  0% {
+    opacity: 0;
+    transform: translate(-72%, -62%) scale(0.5);
+  }
+  4% {
+    opacity: 1;
+    transform: translate(-72%, -62%) scale(0.5);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-72%, -62%) scale(1);
+  }
+}
+
 .animate-float {
   animation: float 8s ease-in-out infinite;
 }
@@ -232,6 +247,10 @@ html {
 
 .animate-circuit-flow {
   animation: circuit-flow 4s linear infinite;
+}
+
+.animate-spotlight {
+  animation: spotlight 2s ease .75s 1 forwards;
 }
 
 /* Custom gradient backgrounds */
