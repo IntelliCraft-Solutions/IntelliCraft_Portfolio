@@ -57,12 +57,44 @@ export function HeroRobotInteractive() {
   const [lastReaction, setLastReaction] = useState<BodyPart | null>(null)
   const [cooldown, setCooldown] = useState(false)
   const [showMessage, setShowMessage] = useState(false)
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const audioContextRef = useRef<AudioContext | null>(null)
 
-  // Initialize audio context
+  // Initialize audio context and mouse tracking
   useEffect(() => {
     if (typeof window !== 'undefined' && !audioContextRef.current) {
       audioContextRef.current = new (window.AudioContext || (window as any).webkitAudioContext)()
+    }
+
+    // Track mouse movement for head following
+    const handleMouseMove = (e: MouseEvent) => {
+      const container = containerRef.current
+      if (!container) return
+      
+      const rect = container.getBoundingClientRect()
+      const centerX = rect.left + rect.width / 2
+      const centerY = rect.top + rect.height / 2
+      
+      const deltaX = e.clientX - centerX
+      const deltaY = e.clientY - centerY
+      
+      // Normalize mouse position relative to container center with more sensitivity
+      setMousePosition({
+        x: Math.max(-1, Math.min(1, deltaX / (rect.width / 3))),
+        y: Math.max(-1, Math.min(1, deltaY / (rect.height / 3)))
+      })
+    }
+
+    // Also track mouse leave to reset position
+    const handleMouseLeave = () => {
+      setMousePosition({ x: 0, y: 0 })
+    }
+
+    window.addEventListener('mousemove', handleMouseMove)
+    window.addEventListener('mouseleave', handleMouseLeave)
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove)
+      window.removeEventListener('mouseleave', handleMouseLeave)
     }
   }, [])
 
@@ -128,8 +160,14 @@ export function HeroRobotInteractive() {
 
   return (
     <div ref={containerRef} className="relative w-full h-full">
-      {/* Spline 3D Robot */}
-      <div className="w-full h-full">
+      {/* Spline 3D Robot with head tracking */}
+      <div 
+        className="w-full h-full"
+        style={{
+          transform: `perspective(1000px) rotateY(${mousePosition.x * 8}deg) rotateX(${mousePosition.y * -5}deg)`,
+          transition: isReacting ? 'none' : 'transform 0.15s ease-out'
+        }}
+      >
         <SplineScene
           scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
           className="w-full h-full"
@@ -145,7 +183,9 @@ export function HeroRobotInteractive() {
           }`}
           onClick={(e) => handleClick('head', e)}
           style={{
-            transform: isReacting && lastReaction === 'head' ? 'translateX(-2px) rotate(-5deg)' : 'translateX(0) rotate(0deg)',
+            transform: isReacting && lastReaction === 'head' 
+              ? 'translateX(-2px) rotate(-5deg)' 
+              : 'translateX(0) rotate(0deg)',
             boxShadow: isReacting && lastReaction === 'head' ? '0 0 20px rgba(236, 72, 153, 0.5)' : 'none'
           }}
         />

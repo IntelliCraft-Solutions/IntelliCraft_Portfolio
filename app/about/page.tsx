@@ -5,6 +5,7 @@ import { Footer } from "@/components/footer"
 import dynamic from "next/dynamic"
 import { motion } from "framer-motion"
 import { TeamSection } from "@/components/team-section"
+import NightSkyBackground from "@/components/night-sky-background"
 import {
   Store,
   Landmark,
@@ -19,7 +20,7 @@ import {
   ShieldCheck,
 } from "lucide-react"
 
-const InteractiveRobot = dynamic(() => import("@/components/interactive-robot"), { ssr: false })
+const Globe = dynamic(() => import("@/components/ui/3d-orb"), { ssr: false })
 
 export default function AboutPage() {
   const container = {
@@ -37,7 +38,8 @@ export default function AboutPage() {
   }
 
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen relative">
+      <NightSkyBackground />
       <Header />
       <section className="relative py-16 sm:py-20 lg:py-24 overflow-hidden">
         <div className="absolute inset-0 gradient-purple opacity-20" />
@@ -75,7 +77,7 @@ export default function AboutPage() {
             </motion.div>
 
             <div className="lg:col-span-6 relative h-[40vh] xs:h-[45vh] sm:h-[50vh] lg:h-[66vh]">
-              <InteractiveRobot />
+              <Globe mode="contained" className="absolute inset-0" />
             </div>
           </div>
         </div>
