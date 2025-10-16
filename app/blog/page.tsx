@@ -9,8 +9,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { useState, useEffect } from "react"
 import { ChevronRight, ArrowUpRight } from "lucide-react"
 import NightSkyBackground from "@/components/night-sky-background"
-import { CircuitBackground } from "@/components/circuit-background"
-import { RobotLighting } from "@/components/robot-lighting"
+ 
 
 // Featured blog posts for the carousel
 const featuredPosts = [
@@ -192,15 +191,9 @@ export default function BlogPage() {
         <div className="absolute inset-0 gradient-purple opacity-20" />
         <div className="absolute inset-0 gradient-pink opacity-15" />
 
-        {/* Circuit background pattern */}
-        <div className="absolute inset-0 z-0 pointer-events-none">
-          <CircuitBackground />
-        </div>
         
-        {/* Robot lighting effects */}
-        <div className="absolute inset-0 z-5 pointer-events-none">
-          <RobotLighting />
-        </div>
+        
+        
 
         {/* Subtle background glow */}
         <div className="pointer-events-none absolute inset-0">
@@ -242,7 +235,7 @@ export default function BlogPage() {
             variants={container}
             className="mb-12"
           >
-            <motion.div variants={item} className="relative h-[350px] sm:h-[400px] lg:h-[450px] mx-8 sm:mx-12 lg:mx-16 rounded-2xl overflow-hidden group cursor-pointer animate-glow">
+            <motion.div variants={item} className="relative h-[350px] sm:h-[400px] lg:h-[450px] mx-8 sm:mx-12 lg:mx-16 rounded-2xl overflow-hidden group cursor-pointer">
               <AnimatePresence mode="wait" custom={1}>
                 <motion.div
                   key={currentFeaturedIndex}
@@ -369,7 +362,7 @@ export default function BlogPage() {
                 whileTap={{ scale: 0.995 }}
                   className="group cursor-pointer"
                 >
-                  <Card className="glass border-primary/20 hover:border-primary/50 transition-all overflow-hidden animate-glow">
+                  <Card className="glass border-primary/20 hover:border-primary/50 transition-all overflow-hidden h-[420px] flex flex-col">
                     <div className="relative">
                       <div 
                         className="h-48 bg-cover bg-center bg-no-repeat"
@@ -384,17 +377,17 @@ export default function BlogPage() {
                       <Badge variant="secondary" className="w-fit mb-2 text-xs">
                         {post.category}
                       </Badge>
-                      <CardTitle className="text-lg leading-tight group-hover:text-primary transition-colors">
+                      <CardTitle className="text-lg leading-tight group-hover:text-primary transition-colors min-h-[3.5rem]" style={{ display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
                         {post.title}
                       </CardTitle>
                   </CardHeader>
                     
-                    <CardContent className="pt-0">
-                      <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
+                    <CardContent className="pt-0 flex flex-col h-full">
+                      <p className="text-muted-foreground text-sm mb-4 leading-relaxed" style={{ display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
                         {post.excerpt}
                       </p>
                       
-                      <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                      <div className="flex items-center gap-2 text-xs text-muted-foreground mt-auto">
                         <img 
                           src="/placeholder-user.jpg" 
                           alt={post.author}
