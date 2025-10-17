@@ -9,16 +9,16 @@ export function TeamSection() {
     {
       name: "Subhobrata Maity",
       role: "Co‑Founder & Delivery",
-      avatar: "/professional-man-founder.png",
+      avatar: "/subhobrata.jpg",
       linkedin: "#",
       twitter: "#",
     },
     {
       name: "Debangshu Roy",
       role: "Co‑Founder & Delivery",
-      avatar: "/professional-woman-cto.png",
-      linkedin: "#",
-      twitter: "#",
+      avatar: "/debangshuroy3.png",
+      linkedin: "https://www.linkedin.com/in/debangshu-roy-5531b8272/",
+      twitter: "https://x.com/Boomboom_699",
     },
   ]
 

@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
+import Link from "next/link"
 import { Github, Twitter, Linkedin, Mail } from "lucide-react"
 
 export function Footer() {
@@ -7,8 +8,14 @@ export function Footer() {
     Services: ["E-commerce Solutions", "Finance Management", "AI Agent Solutions", "Custom Development", "Consulting"],
     Products: ["E-commerce Pro", "FinanceFlow", "AI Agent Suite", "Integration Tools", "Analytics Dashboard"],
     Company: ["About Us", "Case Studies", "Blog", "Careers", "Contact"],
-    Support: ["Documentation", "Help Center", "Community", "Status Page", "Privacy Policy"],
-  }
+    Support: [
+      { label: "Documentation", href: "/documentation" },
+      { label: "Help Center", href: "/help-center" },
+      { label: "Community", href: "/community" },
+      { label: "Status Page", href: "/status" },
+      { label: "Privacy Policy", href: "/privacy-policy" },
+    ],
+  } as const
 
   return (
     <footer className="relative bg-slate-950/95 border-t border-slate-800">
@@ -42,13 +49,16 @@ export function Footer() {
               <div key={category}>
                 <h3 className="font-semibold mb-3 sm:mb-4 text-sm sm:text-base">{category}</h3>
                 <ul className="space-y-2">
-                  {links.map((link) => (
-                    <li key={link}>
-                      <a href="#" className="text-muted-foreground hover:text-primary transition-colors text-xs sm:text-sm">
-                        {link}
-                      </a>
-                    </li>
-                  ))}
+                  {links.map((link) => {
+                    const item = typeof link === "string" ? { label: link, href: "#" } : link
+                    return (
+                      <li key={item.label}>
+                        <Link href={item.href} className="text-muted-foreground hover:text-primary transition-colors text-xs sm:text-sm">
+                          {item.label}
+                        </Link>
+                      </li>
+                    )
+                  })}
                 </ul>
               </div>
             ))}
